@@ -2,10 +2,10 @@ import './Styles/App.css';
 import CountryCards from './Components/CountryCards';
 import { CountryContextProvider } from './Contexts/CountryContext'
 import React from 'react';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
 
-function App() {
+const App = () => {
 
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -31,7 +31,7 @@ function App() {
 
 
   return (
-    <div id="main-div">
+    <div id="main-div" className='App'>
       <CountryContextProvider>
         <CountryCards />
       </CountryContextProvider>

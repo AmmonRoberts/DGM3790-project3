@@ -8,9 +8,10 @@ const CountryContext = React.createContext({
 export const CountryContextProvider = (props) => {
   const [countries, setCountries] = React.useState([])
 
+
   React.useEffect(() => {
-    const fetchMembers = async () => {
-      const URL = `../../netlify/functions/countries`
+    const fetchCountries = async () => {
+      const URL = `/.netlify/functions/countries`
       // const URL = `../../netlify/functions/node-fetch/node-fetch`
 
       try {
@@ -25,7 +26,7 @@ export const CountryContextProvider = (props) => {
       }
     }
     // then call the function
-    fetchMembers()
+    fetchCountries()
   }, [])
 
   return (

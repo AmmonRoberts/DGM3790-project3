@@ -4,7 +4,7 @@ exports.handler = async function (event, context) {
     console.log(event)
     console.log(context)
     try {
-        const response = await axios.get('https://data.world/dr5hn/country-state-city/workspace/file?filename=countries.json', {
+        const response = await axios.get('https://api.data.world/v0/file_download/leftie457/countries/countries.json', {
             headers: { 'authorization': `Bearer ${process.env.REACT_APP_API_KEY}` }
         })
         console.log(response.data)

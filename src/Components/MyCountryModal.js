@@ -40,7 +40,7 @@ const MyCountryModal = (props) => {
             <Fade in={props.openState}>
                 <div className={classes.paper}>
                     <h2 id="transition-modal-title"> {props.country.name}</h2>
-                    <p><img src={`https://www.countryflags.io/${props.country.iso2}/shiny/64.png`} /></p>
+                    <p><img src={`https://www.countryflags.io/${props.country.iso2}/shiny/64.png`} alt={`${props.country.name} flag`} /></p>
                     <h4 className={classes.language_list}>Translations:</h4>
                     <Translations translations={props.country.translations} />
                 </div>

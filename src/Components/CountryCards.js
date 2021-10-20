@@ -7,7 +7,6 @@ import SearchForm from './SearchForm';
 
 const CountryCards = (props) => {
     const CountriesJson = useCountryContext();
-    console.log(CountriesJson)
     // This is the problem with resetting the search string
     // const [searchString, setSearchString] = useState(null);
     const [filteredRegion, setFilteredRegion] = useState("None");
@@ -15,7 +14,6 @@ const CountryCards = (props) => {
         // setSearchString(null);
         if (event.target.value === "None") {
             setFilteredRegion("None");
-
         }
         else {
             setFilteredRegion(event.target.value);

@@ -1,14 +1,40 @@
 import { Card } from '@mui/material';
-import "../Styles/CountryData.css";
-import PublicIcon from '@mui/icons-material/Public';
 import MoneyIcon from '@mui/icons-material/Money';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import MyCountryModal from "./MyCountryModal";
 import React from 'react';
 import { useState } from 'react';
+import { makeStyles } from '@mui/styles';
 
 
 const CountryData = (props) => {
+
+    const useStyles = makeStyles((theme) => ({
+        countryCard: {
+            width: '15em',
+            margin: 'auto',
+            padding: '.5em'
+        },
+        countryData: {
+            height: '200px',
+            cursor: 'pointer',
+            "& p": {
+                margin: '5px',
+                paddingLeft: '10px',
+                fontSize: '14px',
+                display: 'flex',
+                justifyContent: 'flex-start'
+            },
+            "& h4": {
+                margin: '5px',
+                fontSize: '18px',
+                display: 'flex',
+                justifyContent: 'flex-start'
+            }
+        },
+    }));
+
+    const classes = useStyles();
 
     const [open, setOpen] = useState(false);
 
@@ -21,9 +47,10 @@ const CountryData = (props) => {
     };
 
     return (
-        <div className="country-card" >
+        <div
+            className={classes.countryCard}>
             <Card
-                className="country-data"
+                className={classes.countryData}
                 onClick={handleOpen}
             >
                 <h4>{props.country.name}</h4>

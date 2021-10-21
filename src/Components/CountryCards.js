@@ -1,9 +1,9 @@
-// import CountriesJson from '../Data/countries.json'
 import { useCountryContext } from '../Contexts/CountryContext';
 import CountryData from './CountryData';
 import { useState } from 'react';
 import React from 'react';
 import SearchForm from './SearchForm';
+
 
 const CountryCards = (props) => {
     const CountriesJson = useCountryContext();

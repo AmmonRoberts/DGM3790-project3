@@ -1,14 +1,17 @@
-import * as React from 'react'
+import React from 'react';
+import { useState, useEffect, useContext, createContext } from 'react';
 import axios from 'axios'
+import Spinner from '../Components/Spinner';
 
-const CountryContext = React.createContext({
+const CountryContext = createContext({
   countries: [],
 })
 
 export const CountryContextProvider = (props) => {
-  const [countries, setCountries] = React.useState([])
+  const [countries, setCountries] = useState([])
+  const [isLoading, setLoading] = useState(true)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchCountries = async () => {
       const URL = `/.netlify/functions/countries`
 
@@ -17,6 +20,7 @@ export const CountryContextProvider = (props) => {
         const countries = await response.data
 
         setCountries(countries)
+        setLoading(false)
       } catch (error) {
         console.log(error)
       }
@@ -25,11 +29,11 @@ export const CountryContextProvider = (props) => {
     fetchCountries()
   }, [])
 
-  return (
-    <CountryContext.Provider value={countries}>
+  return isLoading ? (<Spinner />) : (
+    <CountryContext.Provider value={countries} isLoading={isLoading}>
       {props.children}
     </CountryContext.Provider>
   )
 }
 
-export const useCountryContext = () => React.useContext(CountryContext)
+export const useCountryContext = () => useContext(CountryContext)
